@@ -12,7 +12,7 @@ while read fp; do
   [ -z "$fp" ] && continue  # Пропускаем пустые строки
   
   echo "Обработка ключа: $fp"
-  sudo -u portage gpg --homedir /etc/portage/gnupg \
+  gpg --homedir /etc/portage/gnupg     \
     --keyserver hkps://keys.gentoo.org \
     --recv-keys "$fp"
     
@@ -23,7 +23,7 @@ while read fp; do
 done < /tmp/my-gpg-keys.txt
 
 # Создаем seed-файл
-sudo -u portage dd if=/dev/urandom of=/etc/portage/gnupg/random_seed bs=1024 count=1
+dd if=/dev/urandom of=/etc/portage/gnupg/random_seed bs=1024 count=1
 chmod 600 /etc/portage/gnupg/random_seed
 EOF
 chmod +x /tmp/import-keys.sh
