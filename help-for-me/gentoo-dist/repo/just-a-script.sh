@@ -16,7 +16,7 @@ while read fp; do
     --keyserver hkps://keys.gentoo.org \
     --recv-keys "$fp"
     
-  echo -e "trust\n5\ny\n" | sudo -u portage gpg \
+  echo -e "trust\n5\ny\n" | gpg \
     --homedir /etc/portage/gnupg \
     --command-fd 0 \
     --edit-key "$fp"
