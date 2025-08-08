@@ -3,7 +3,7 @@
 // Список разрешённых стран (в формате ISO 3166-1 alpha-2)
 const allowedCountries = ['RU', 'UA', 'BY', 'MD']; // Россия, Украина, Беларусь, Молдова (ПМР — это территория Молдовы, используем MD)
 
-// URL для перенаправления
+// URL для перенаправления :)
 const blockedRedirectUrl = '/denied/your-country-is-not-supported';
 
 // Функция для получения геоданных по IP
