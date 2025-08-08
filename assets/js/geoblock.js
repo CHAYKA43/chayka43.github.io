@@ -16,7 +16,7 @@ async function getGeoLocation() {
         const userCountryCode = data.country_code;
 
         if (!allowedCountries.includes(userCountryCode)) {
-            window.location.replace(blockedRedirectUrl);
+            console.log(userCountryCode)
         }
     } catch (error) {
         console.warn('Ошибка при определении страны:', error);
