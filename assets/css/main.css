@@ -1,11 +1,14 @@
+/* Базовые стили */
 body {
-    background-color: rgb(14, 14, 14);
+    background-color: #0e0e0e;
     color: white;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 20px;
+    line-height: 1.6;
 }
 
+/* Главный блок */
 .rectangle {
     width: 100%;
     height: 100px;
@@ -20,6 +23,7 @@ body {
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .what_the_text {
@@ -43,14 +47,35 @@ body {
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
-.ps {
-    font-size: 10px;
-    color: #aaa;
-    margin-top: 5px;
+/* Кнопки в .rectangle */
+.inline-buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
-.bold_lol {
-    font-weight: bold;
+.btn-inline {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: 0.2s;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.btn-inline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Контент */
+.content {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .yra {
@@ -66,57 +91,56 @@ body {
     color: #888;
 }
 
-/* Кнопки в строке — внутри .rectangle */
-.inline-buttons {
-    display: flex;
-    gap: 8px;
-    margin-left: auto; /* Оттолкнёт кнопки к правому краю */
-    flex-shrink: 0;
+/* Сетка ссылок */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
 }
 
-.btn-inline {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 6px 8px;
+.link-grid a {
+    display: block;
+    padding: 10px;
     border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
     transition: 0.2s;
-    background-color: transparent;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.btn-inline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-    transform: translateY(-1px);
+.link-cyan:hover { text-shadow: 0 0 5px cyan; }
+.link-red:hover { text-shadow: 0 0 5px red; }
+.link-purple:hover { text-shadow: 0 0 5px purple; }
+
+/* Подпись */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #555;
+    font-size: 12px;
 }
 
-.link-red {
-    color: red;
-    text-decoration: none;
-    font-weight: 600;
+.ps {
+    font-size: 10px;
+    color: #aaa;
+    margin: 5px 0;
 }
 
-.link-red:hover {
-    text-shadow: 0 0 5px red;
-}
-
-.link-cyan {
-    color: cyan;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.link-cyan:hover {
-    text-shadow: 0 0 5px cyan;
-}
-
-.link-purple {
-    color: purple;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.link-purple:hover {
-    text-shadow: 0 0 5px purple;
+/* Адаптив */
+@media (max-width: 600px) {
+    .rectangle {
+        height: auto;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .inline-buttons {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    .btn-inline {
+        min-width: 120px;
+    }
 }
