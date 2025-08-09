@@ -3,8 +3,8 @@ const blockedRedirectUrl = '/denied/your-country-is-not-supported';
 
 async function getGeoLocation() {
     const apis = [
-        'https://api.ip.sb/geoip',
-        'https://ipwho.is/'
+        'https://ipwho.is/',
+        'https://api.ip.sb/geoip'
     ];
 
     for (const url of apis) {
