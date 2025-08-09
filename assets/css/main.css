@@ -56,3 +56,29 @@ body {
 .porno {
     text-decoration: line-through;
 }
+
+.rectangle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 12px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn:hover {
+  background-color: #555;
+}
