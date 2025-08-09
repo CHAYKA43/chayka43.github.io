@@ -1,31 +1,33 @@
-// geoblock.js
-
-// Список разрешённых стран (в формате ISO 3166-1 alpha-2)
-const allowedCountries = ['RU', 'UA', 'BY', 'MD']; // Россия, Украина, Беларусь, Молдова (ПМР — это территория Молдовы, используем MD)
-
-// URL для перенаправления :)
+const allowedCountries = ['RU', 'UA', 'BY', 'MD'];
 const blockedRedirectUrl = '/denied/your-country-is-not-supported';
 
-// Функция для получения геоданных по IP
 async function getGeoLocation() {
-    try {
-        const response = await fetch('https://api.ip.sb/geoip');
-        if (!response.ok) throw new Error('Не удалось получить данные о местоположении');
+    const apis = [
+        'https://api.ip.sb/geoip',
+        'https://ipwho.is/'
+    ];
 
-        const data = await response.json();
-        const userCountryCode = data.country_code;
+    for (const url of apis) {
+        try {
+            const response = await fetch(url, { signal: AbortSignal.timeout(5000) });
+            if (!response.ok) continue;
 
-        if (!allowedCountries.includes(userCountryCode)) {
-            window.location.replace(blockedRedirectUrl);
+            const data = await response.json();
+            const countryCode = (data.country_code || data.country)?.toUpperCase().substring(0, 2);
+
+            if (countryCode && !allowedCountries.includes(countryCode)) {
+                window.location.replace(blockedRedirectUrl);
+            }
+            return;
+        } catch (e) {
+            console.warn(`API ${url} failed:`, e);
+            // Продолжаем с другим API
         }
-    } catch (error) {
-        console.warn('Ошибка при определении страны:', error);
-        // При ошибке можно либо пропустить, либо перенаправить — зависит от политики
-        // Например, можно перенаправить всех при ошибках (строгий режим), или наоборот — пропустить
-        // Здесь: перенаправляем при ошибках (для безопасности)
-        window.location.replace(blockedRedirectUrl);
     }
+
+    // Все API упали — не блокируем
+    console.warn('Все гео-API недоступны — пропускаем пользователя');
 }
 
-// Запускаем при загрузке скрипта
+// Запускаем
 getGeoLocation();
