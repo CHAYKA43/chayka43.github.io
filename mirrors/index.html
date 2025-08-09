@@ -13,28 +13,46 @@
             margin: 30px auto;
             max-width: 600px;
         }
+
         .mirror-card {
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             font-weight: 600;
             transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            color: white;
+            font-size: 16px;
         }
+
         .mirror-github {
             background: #1d1d1d;
             border: 2px solid white;
+            color: white;
         }
+
         .mirror-cloudflare {
             background: #1d1d1d;
             border: 2px solid red;
+            color: red;
         }
+
         .mirror-vercel {
             background: #1d1d1d;
             border: 2px solid cyan;
+            color: cyan;
         }
+
+        /* Подчёркивание при наведении */
         .mirror-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+
+        /* Чтобы карточки не вызывали переход на / */
+        .mirror-card {
+            pointer-events: auto;
         }
     </style>
 </head>
@@ -43,8 +61,13 @@
         <meta http-equiv="refresh" content="0; url=/denied/check-javascript-in-settings-your-browser">
     </noscript>
 
-    <div class="rectangle">
+    <!-- Клик по .rectangle → /, но не мешает кнопкам -->
+    <div class="rectangle" onclick="window.location.href='/'" style="cursor: pointer;">
         <h1 class="what_the_text">CHAYKA<span class="color1">4</span><span class="color2">3</span></h1>
+        <div class="inline-buttons">
+            <a href="https://chayka43.github.io/debian" class="btn-inline" onclick="event.stopPropagation();">APT</a>
+            <a href="/mirrors/" class="btn-inline" onclick="event.stopPropagation();">Зеркала</a>
+        </div>
     </div>
 
     <div style="text-align: center; margin: 30px 0;">
@@ -52,30 +75,42 @@
         <p>Если основной сайт упал — не паникуй. Есть альтернативы.</p>
     </div>
 
+    <!-- Сетка зеркал -->
     <div class="mirror-grid">
-        <a href="https://chayka43.github.io/" class="mirror-card mirror-github">
+        <a href="https://chayka43.github.io/" class="mirror-card mirror-github" onclick="event.stopPropagation();">
             🟩 GitHub Pages<br>
-            <small>Долго обновляется</small>
+            <small style="font-size: 12px; opacity: 0.7;">Долго обновляется</small>
         </a>
-        <a href="https://chayka43.pages.dev/" class="mirror-card mirror-cloudflare">
+        <a href="https://chayka43.pages.dev/" class="mirror-card mirror-cloudflare" onclick="event.stopPropagation();">
             🟥 Cloudflare<br>
-            <small>Могут заблокировать</small>
+            <small style="font-size: 12px; opacity: 0.7;">Могут заблокировать</small>
         </a>
-        <a href="https://chayka43.vercel.app/" class="mirror-card mirror-vercel">
+        <a href="https://chayka43.vercel.app/" class="mirror-card mirror-vercel" onclick="event.stopPropagation();">
             🟦 Vercel<br>
-            <small>Рекомендовано, быстро</small>
+            <small style="font-size: 12px; opacity: 0.7;">Рекомендовано, быстро</small>
         </a>
     </div>
 
+    <!-- Кнопка "назад" -->
     <div style="text-align: center; margin-top: 30px;">
         <a href="/" class="link-cyan">← Назад на главную</a>
     </div>
 
+    <!-- Подпись -->
     <footer class="footer">
         <p class="ps">CHAYKA43 - Все права украдены у Microsoft патаму чта винда кал (ну... почти)</p>
         <p class="ps">2025 - 2025</p>
+        <p class="ps">Заходя на сайт вы подтверждаете, что будете относиться ко всему как к шутке... Этот сайт экспериментальный и... Я фанатею по хойк- ААААА БЕНИТО МУСАЛИНИ</p>
     </footer>
 
+    <!-- Геоблок -->
     <script src="/assets/js/geoblock.js" defer></script>
+
+    <!-- Убедимся, что клик по карточкам не вызывает переход на / -->
+    <script>
+        document.querySelectorAll('.mirror-card').forEach(card => {
+            card.addEventListener('click', e => e.stopPropagation());
+        });
+    </script>
 </body>
 </html>
