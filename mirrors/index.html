@@ -1,39 +1,81 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Мой вебсайт (делал через нейронку потому что мне лень)
-        </title>
-        <link rel="stylesheet" href="/assets/css/main.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Open Sans', sans-serif;
-            }
-        </style>
-    </head>
-    <body>
-        <noscript>
-            <meta http-equiv="refresh" content="0; url=/denied/check-javascript-in-settings-your-browser">
-        </noscript>
-        <div class="rectangle" onclick="window.location.href='/'" style="cursor: pointer;">
-            <h1 class="what_the_text">
-                CHAYKA<span class="color1">4</span><span class="color2">3</span>
-            </h1>
-            <div class="inline-buttons">
-                <a href="https://chayka43.github.io/debian" class="btn-inline" onclick="event.stopPropagation();">Мой APT репозиторий</a>
-                <a href="/mirrors/" class="btn-inline" onclick="event.stopPropagation();">Зеркала сайта</a>
-            </div>
-        </div>
-        <div style="text-align: center; margin: 20px 0;">
-            <a href="https://chayka43.github.io/" class="link-purple">GitHub Pages (долго обновляется)</a>
-            <br>
-            <a href="https://chayka43.pages.dev/" class="link-red">Cloudflare (не рекомендовано, могут заблокировать)</a>
-            <br>
-            <a href="https://chayka43.vercel.app/" class="link-cyan">Vercel (рекомендовано, быстро обновляется)</a>
-        </div>
-        <div style="text-align: center;">
-            <p class="ps">CHAYKA43 - Все права украдены у Microsoft патаму чта винда кал (ну... почти)</p>
-            <p class="ps">2025 - 2025</p>
-        </div>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зеркала сайта CHAYKA43</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .mirror-grid {
+            display: grid;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+        .mirror-card {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .mirror-github {
+            background: #1d1d1d;
+            border: 2px solid white;
+        }
+        .mirror-cloudflare {
+            background: #1d1d1d;
+            border: 2px solid red;
+        }
+        .mirror-vercel {
+            background: #1d1d1d;
+            border: 2px solid cyan;
+        }
+        .mirror-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/denied/check-javascript-in-settings-your-browser">
+    </noscript>
+
+    <div class="rectangle">
+        <h1 class="what_the_text">CHAYKA<span class="color1">4</span><span class="color2">3</span></h1>
+    </div>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <h1>Выбери зеркало</h1>
+        <p>Если основной сайт упал — не паникуй. Есть альтернативы.</p>
+    </div>
+
+    <div class="mirror-grid">
+        <a href="https://chayka43.github.io/" class="mirror-card mirror-github">
+            🟩 GitHub Pages<br>
+            <small>Долго обновляется</small>
+        </a>
+        <a href="https://chayka43.pages.dev/" class="mirror-card mirror-cloudflare">
+            🟥 Cloudflare<br>
+            <small>Могут заблокировать</small>
+        </a>
+        <a href="https://chayka43.vercel.app/" class="mirror-card mirror-vercel">
+            🟦 Vercel<br>
+            <small>Рекомендовано, быстро</small>
+        </a>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="/" class="link-cyan">← Назад на главную</a>
+    </div>
+
+    <footer class="footer">
+        <p class="ps">CHAYKA43 - Все права украдены у Microsoft патаму чта винда кал (ну... почти)</p>
+        <p class="ps">2025 - 2025</p>
+    </footer>
+
+    <script src="/assets/js/geoblock.js" defer></script>
+</body>
 </html>
