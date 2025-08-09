@@ -58,29 +58,24 @@ body {
     text-decoration: line-through;
 }
 
-.button-container-in-rectangle {
+.inline-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
+  gap: 8px;
 }
 
-.btn-transparent {
-  padding: 10px 14px;
-  color: #ffffff;
+.btn-inline {
+  color: white;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.3s;
+  font-size: 16px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: 0.2s;
   background-color: transparent;
-  display: inline-block;
-  min-width: 85px;
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.btn-transparent:hover {
+.btn-inline:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
   transform: translateY(-1px);
 }
