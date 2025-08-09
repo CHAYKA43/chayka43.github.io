@@ -1,47 +1,52 @@
 body {
     background-color: rgb(14, 14, 14);
     color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
 .rectangle {
     width: 100%;
-    /* Ширина */
     height: 100px;
-    /* Высота */
     background: #1d1d1d;
-    /* Цвет фона */
     border-radius: 15px;
     border: 3px solid #ffffff;
     box-shadow: 0 0 15px rgba(173, 173, 173, 0.5);
+    display: flex;
+    align-items: center;
     gap: 15px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
 }
 
 .what_the_text {
     font-style: italic;
     font-weight: bold;
-    margin-left: 20px;
     font-size: 30px;
-    margin-top: 30px;
     font-family: Arial, sans-serif;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+    color: white;
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .color1 {
     color: #00fff2;
-    /* первый цвет */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-    /* Тень текста */
 }
 
 .color2 {
     color: #ff9100;
-    /* второй цвет */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-    /* Тень текста */
 }
 
 .ps {
     font-size: 10px;
+    color: #aaa;
+    margin-top: 5px;
 }
 
 .bold_lol {
@@ -51,31 +56,37 @@ body {
 .yra {
     padding-bottom: 5px;
     border-bottom: 2px solid #333;
-    /* Нейронка вещь прикольная) */
+    font-size: 20px;
+    color: #e0e0e0;
+    margin-top: 25px;
 }
 
 .porno {
     text-decoration: line-through;
+    color: #888;
 }
 
+/* Кнопки в строке — внутри .rectangle */
 .inline-buttons {
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
+    margin-left: auto; /* Оттолкнёт кнопки к правому краю */
+    flex-shrink: 0;
 }
 
 .btn-inline {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: 0.2s;
-  background-color: transparent;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: 0.2s;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .btn-inline:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-  transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
 }
