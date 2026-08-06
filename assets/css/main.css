@@ -1,4 +1,3 @@
-/* Базовые стили */
 body {
     background-color: #0e0e0e;
     color: white;
@@ -8,7 +7,6 @@ body {
     line-height: 1.6;
 }
 
-/* Главный блок */
 .rectangle {
     width: 100%;
     height: 100px;
@@ -24,18 +22,21 @@ body {
     overflow: hidden;
     position: relative;
     margin-bottom: 30px;
+    animation: glowPulse 2.5s ease-in-out infinite;
 }
 
-.what_the_text {
+.maintext {
     font-style: italic;
     font-weight: bold;
     font-size: 30px;
     font-family: Arial, sans-serif;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
     color: white;
     margin: 0;
     flex-shrink: 0;
+    animation: textPulse 2.5s ease-in-out infinite;
 }
+
 
 .color1 {
     color: #00fff2;
@@ -47,7 +48,30 @@ body {
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
-/* Кнопки в .rectangle */
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 15px rgba(173, 173, 173, 0.3); }  /* Тусклая */
+    50% { box-shadow: 0 0 25px rgba(173, 173, 173, 0.9); } /* Яркая */
+    100% { box-shadow: 0 0 15px rgba(173, 173, 173, 0.3); } /* Снова тусклая */
+}
+
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 15px rgba(173, 173, 173, 0.3); }  /* Тусклая */
+    50% { box-shadow: 0 0 25px rgba(173, 173, 173, 0.519); } /* Яркая */
+    100% { box-shadow: 0 0 15px rgba(173, 173, 173, 0.3); } /* Снова тусклая */
+}
+
+@keyframes mainButtonPulse {
+    0% { box-shadow: 0 0 15px rgba(173, 173, 173, 0.3); }  /* Тусклая */
+    50% { box-shadow: 0 0 25px rgba(173, 173, 173, 0.540); } /* Яркая */
+    100% { box-shadow: 0 0 15px rgba(173, 173, 173, 0.3); } /* Снова тусклая */
+}
+
+@keyframes textPulse {
+    0% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }  /* Тусклая */
+    50% { text-shadow: 0 0 25px rgba(244, 243, 243, 0.701); } /* Яркая */
+    100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); } /* Снова тусклая */
+}
+
 .inline-buttons {
     display: flex;
     gap: 8px;
@@ -64,70 +88,24 @@ body {
     transition: 0.2s;
     background-color: transparent;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid #ffffffab;
+    cursor: pointer;
 }
 
-.btn-inline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-    transform: translateY(-1px);
-}
-
-/* Контент */
-.content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.yra {
-    padding-bottom: 5px;
-    border-bottom: 2px solid #333;
-    font-size: 20px;
-    color: #e0e0e0;
-    margin-top: 25px;
-}
-
-.porno {
-    text-decoration: line-through;
-    color: #888;
-}
-
-/* Сетка ссылок */
-.link-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.link-grid a {
-    display: block;
-    padding: 10px;
-    border-radius: 6px;
+.main-btn-inline {
+    color: white;
     text-decoration: none;
-    text-align: center;
     font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 6px;
     transition: 0.2s;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid #ffffffab;
+    animation: mainButtonPulse 2.5s ease-in-out infinite;
+    cursor: pointer;
 }
 
-.link-cyan:hover { text-shadow: 0 0 5px cyan; }
-.link-red:hover { text-shadow: 0 0 5px red; }
-.link-purple:hover { text-shadow: 0 0 5px purple; }
-
-/* Подпись */
-.footer {
-    text-align: center;
-    margin-top: 50px;
-    color: #555;
-    font-size: 12px;
-}
-
-.ps {
-    font-size: 10px;
-    color: #aaa;
-    margin: 5px 0;
-}
-
-/* Адаптив */
 @media (max-width: 600px) {
     .rectangle {
         height: auto;
@@ -143,4 +121,23 @@ body {
     .btn-inline {
         min-width: 120px;
     }
+}
+
+.btn-inline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.header {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #333;
+    font-size: 20px;
+    color: #e0e0e0;
+    margin-top: 25px;
 }
